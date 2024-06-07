@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
     providedIn: 'root'
@@ -23,7 +23,15 @@ export class ApiService {
     update(_JSON:any ) {
         return this.http.put(`${this.baseUrl}/users/update`,_JSON)
     }
-    deleteUser(_JSON:any ) {
+    deleteUser(_JSON:any) {
+        // let json = {
+            // headers: new HttpHeaders({
+            //   'Content-Type': 'application/json',
+            // }),
+        //     body: {
+        //       id: id
+        //     },
+        //   };
         return this.http.delete(`${this.baseUrl}/users/delete`,_JSON)
     }
 }

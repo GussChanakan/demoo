@@ -229,15 +229,19 @@ export class IndexComponent {
     deleteUser(item) {
         this.dStatus = true
         console.log(item)
-        let x = {'id':item.id}
-        console.log(x)
+        let Body ={
+                body: {
+                'id': item.id
+            },
+        }
+        console.log(Body)
         // console.log(typeof x.id)
         this.ConfirmationService.confirm({
             header: 'ยืนยันการลบ',
             icon: 'pi pi-info-circle',
             message: `คุณต้องการลบผู้ใช้ `,
             accept: () => {
-                this.ApiService.deleteUser(x).subscribe({
+                this.ApiService.deleteUser(Body).subscribe({
                     next: (res) => {
                         console.log(res)
                         // if (res['status'] == 'ok') {
@@ -261,6 +265,7 @@ export class IndexComponent {
                     },
                     complete: () => {
                         this.dStatus = false
+                        this.getAll()
                     },
                 })
             }
