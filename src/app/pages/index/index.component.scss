@@ -1,0 +1,18 @@
+.wrapForm {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+.row { 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 5px;
+}
+label {
+    margin-bottom: 0;
+}
+.input {
+    width: 250px;
+    height: 40px;
+}
